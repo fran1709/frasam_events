@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+    
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,7 +70,7 @@ namespace BZPAY_BE.Repositories.Implementations
                                      Escenario = ESC.Nombre,
                                      Localizacion = ESC.Localizacion
                                  }).ToListAsync();
-            return (IEnumerable<DetalleEvento>)await listaEventos;
+            return await listaEventos;
         }
 
         public async Task<EventoAsientos> GetEventoAsientosAsync(int? id)

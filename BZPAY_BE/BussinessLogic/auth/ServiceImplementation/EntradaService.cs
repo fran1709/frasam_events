@@ -1,5 +1,7 @@
 ﻿using BZPAY_BE.BussinessLogic.auth.ServiceInterface;
 using BZPAY_BE.Models;
+using BZPAY_BE.Models.Entities;
+using BZPAY_BE.Repositories.Implementations;
 using BZPAY_BE.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -67,6 +69,12 @@ namespace BZPAY_BE.BussinessLogic.auth.ServiceImplementation
                 await _entradaRepository.AddAsync(nuevaEntrada);
             }
             return entradasEvento;
+        }
+
+        public async Task<IEnumerable<DetalleEntrada>> GetDetalleEntradaAsync()
+        {
+            var lista = await _entradaRepository.GetDetalleEntradaAsync();
+            return lista;
         }
     }
 }

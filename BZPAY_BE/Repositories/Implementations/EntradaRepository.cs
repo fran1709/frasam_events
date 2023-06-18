@@ -5,6 +5,7 @@ using System.Linq;
 using BZPAY_UI.Repositories.Implementations;
 using BZPAY_BE.Repositories.Interfaces;
 using BZPAY_BE.Models;
+using BZPAY_BE.Models.Entities;
 
 namespace BZPAY_BE.Repositories.Implementations
 {
@@ -39,6 +40,42 @@ namespace BZPAY_BE.Repositories.Implementations
                                     
                                 }).ToListAsync();
             return await listaEventos;
+        }
+
+        public async Task<IEnumerable<DetalleEntrada>> GetDetalleEntradaAsync()
+        {
+            var listadetalleentrada = (from E in _context.Entradas
+                                       join EV in _context.Eventos on E.IdEvento equals EV.Id
+                                       join TE in _context.TipoEventos on EV.IdTipoEvento equals TE.Id
+                                       where E.Active
+                                       orderby E.Id ascending
+                                       select new DetalleEntrada
+                                       {
+                                           Id = E.Id,
+                                           IdEvento = E.IdEvento,
+                                           TipoAsiento = E.TipoAsiento,
+                                           Disponibles = E.Disponibles,
+                                           Precio = E.Precio
+                                       }).ToListAsync();
+            return await listadetalleentrada;
+        }
+
+        public async Task<IEnumerable<DetalleEntrada>> GetDetalleEntradas()
+        {
+            var listadetalleentrada = (from E in _context.Entradas
+                                       join EV in _context.Eventos on E.IdEvento equals EV.Id
+                                       join TE in _context.TipoEventos on EV.IdTipoEvento equals TE.Id
+                                       where E.Active
+                                       orderby E.Id ascending
+                                       select new DetalleEntrada
+                                       {
+                                           Id = E.Id,
+                                           IdEvento = E.IdEvento, 
+                                           TipoAsiento = E.TipoAsiento,
+                                           Disponibles = E.Disponibles, 
+                                           Precio = E.Precio
+                                       }).ToListAsync();
+            return await listadetalleentrada;
         }
 
         public async Task<Entrada> GetEntradaByIdAsync(int? id)

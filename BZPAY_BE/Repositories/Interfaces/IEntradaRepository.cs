@@ -1,4 +1,5 @@
 ﻿using BZPAY_BE.Models;
+using BZPAY_BE.Models.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 namespace BZPAY_BE.Repositories.Interfaces
@@ -15,6 +16,8 @@ namespace BZPAY_BE.Repositories.Interfaces
         Task<Entrada> GetEntradaByIdEventoAsync(int? id);
 
         Task<Entrada> CreateEntradasAsync(Entrada entrada);
+
+        Task<IEnumerable<DetalleEntrada>> GetDetalleEntradaAsync();
     }
 
     

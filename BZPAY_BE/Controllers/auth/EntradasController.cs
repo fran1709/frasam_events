@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using devTicket.Models;
 using BZPAY_BE.Models;
 using BZPAY_BE.BussinessLogic.auth.ServiceInterface;
+using BZPAY_BE.Models.Entities;
 
 namespace devTicket.Controllers
 {
@@ -46,6 +47,16 @@ namespace devTicket.Controllers
         public async Task<ActionResult<IEnumerable<Entrada>>> GetEntradaByIdEventoAsync(int? id)
         {
             Entrada result = await _service.GetEntradaByIdEventoAsync(id);
+            return (result is null) ? NotFound() : Ok(result);
+        }
+
+        // GET: Entradas
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(IEnumerable<DetalleEntrada>), StatusCodes.Status200OK)]
+        public async Task<ActionResult<IEnumerable<DetalleEntrada>>> GetDetalleEntradaAsync()
+        {
+            IEnumerable<DetalleEntrada> result = await _service.GetDetalleEntradaAsync();
             return (result is null) ? NotFound() : Ok(result);
         }
 
