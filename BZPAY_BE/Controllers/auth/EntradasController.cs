@@ -49,7 +49,7 @@ namespace devTicket.Controllers
             return (result is null) ? NotFound() : Ok(result);
         }
 
-        /*[HttpPost]
+        [HttpPost]
         [ProducesResponseType(typeof(Evento), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<Entrada>> CreateEntradaAsync([FromBody] Entrada entrada)
@@ -62,7 +62,7 @@ namespace devTicket.Controllers
             Entrada createdEntrada = await _service.CreateEntradasAsync((IFormCollection)entrada);
 
             return CreatedAtAction(nameof(GetEntradaByIdAsync), new { id = createdEntrada.Id }, createdEntrada);
-        }*/
+        }
 
 
         /*private readonly dev_ticketContext _context;
