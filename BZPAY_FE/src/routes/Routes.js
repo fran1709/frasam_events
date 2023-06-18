@@ -4,6 +4,7 @@ import Home from '../pages/Home';
 import Login from '../pages/auth/Login';
 import ForgotPassword from '../pages/auth/ForgotPassword';
 import RecoverPassword from '../pages/auth/RecoverPassword';
+import ListarEventos from "../pages/ListarEventos";
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                 <Route exact path="/ForgotPassword" element={<ForgotPassword />} />
                 <Route exact path="/RecoverPassword" element={<RecoverPassword />} />
                 <Route exact path="/Home" element={<Home />} />
+                <Route exact path="/ListarEventos" element={<ListarEventos/>} />
             </Routes>
         </Router>
     );
