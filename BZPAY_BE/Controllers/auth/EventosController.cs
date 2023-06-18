@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using devTicket.Models;
 using BZPAY_BE.Models;
 using BZPAY_BE.BussinessLogic.auth.ServiceInterface;
+using BZPAY_BE.DataAccess;
 
 namespace BZPAY_BE.Controllers
 {

@@ -38,8 +38,11 @@ builder.Services.AddScoped<ITipoEventoRepository, TipoEventoRepository>();
 var mappingConfig = new MapperConfiguration(mc =>
 {
     mc.AddProfile(new AspnetuserProfile());
-   // mc.AddProfile(new AspnetMembershipProfile());
+    mc.AddProfile(new AspnetMembershipProfile());
     mc.AddProfile(new EventoProfile());
+    mc.AddProfile(new EntradaProfile());
+    mc.AddProfile(new DetalleEntradaProfile());
+    mc.AddProfile(new DetalleEventoProfile());
 });
 
 IMapper mapper = mappingConfig.CreateMapper();
