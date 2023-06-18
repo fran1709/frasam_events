@@ -1,5 +1,6 @@
 ﻿using BZPAY_BE.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace BZPAY_BE.BussinessLogic.auth.ServiceInterface
 
         Task<Entrada> GetEntradaByIdEventoAsync(int? id);
 
-        Task<Entrada> CreateEntradasAsync(IFormCollection form);
+        Task<Entrada> CreateEntradasAsync(Entrada entrada);
 
     }
 }

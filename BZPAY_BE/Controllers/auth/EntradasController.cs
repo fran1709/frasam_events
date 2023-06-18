@@ -59,10 +59,25 @@ namespace devTicket.Controllers
                 return BadRequest();
             }
 
-            Entrada createdEntrada = await _service.CreateEntradasAsync((IFormCollection)entrada);
+            Entrada createdEntrada = await _service.CreateEntradasAsync(entrada);
 
             return CreatedAtAction(nameof(GetEntradaByIdAsync), new { id = createdEntrada.Id }, createdEntrada);
         }
+
+        /*[HttpPost]
+        [ProducesResponseType(typeof(Evento), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<Entrada>> CreateEntradaAsync([FromBody] Entrada entrada)
+        {
+            if (entrada is null)
+            {
+                return BadRequest();
+            }
+
+            Entrada createdEntrada = await _service.CreateEntradasAsync((IFormCollection)entrada);
+
+            return CreatedAtAction(nameof(GetEntradaByIdAsync), new { id = createdEntrada.Id }, createdEntrada);
+        }*/
 
 
         /*private readonly dev_ticketContext _context;

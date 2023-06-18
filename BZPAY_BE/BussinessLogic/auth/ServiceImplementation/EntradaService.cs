@@ -2,10 +2,12 @@
 using BZPAY_BE.Models;
 using BZPAY_BE.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Threading.Tasks;
 
 // namespace SpecialTicket.BLL.Services.Implementations
@@ -50,32 +52,21 @@ namespace BZPAY_BE.BussinessLogic.auth.ServiceImplementation
             return lista;
         }
 
-        public async Task<Entrada> CreateEntradasAsync(IFormCollection collection)
+        public async Task<Entrada> CreateEntradasAsync(Entrada entrada)
         {
-            var form = collection.ToList();
-            var idEvento = Int32.Parse(form[0].Value);
-            //verificar primero si ya existen las entradas porque solo se pueden crear una vez
-            var entradasEvento = await _entradaRepository.GetEntradaByIdEventoAsync(idEvento);
-            if (entradasEvento == null)//si entradas no han sido creadas --> crearlas
+            // Verificar primero si ya existen las entradas porque solo se pueden crear una vez
+            var entradasEvento = await _entradaRepository.GetEntradaByIdEventoAsync(entrada.IdEvento);
+            if (entradasEvento == null) // Si las entradas no han sido creadas --> crearlas
             {
-                var descripciones = form[1].Value.ToList();
-                var cantidades = form[2].Value.ToList();
-                var precios = form[3].Value.ToList();
-                for (var i = 0; i < descripciones.Count(); i++)
-                {
-                    var entrada = new Entrada();
-                    entrada.IdEvento = idEvento;
-                    entrada.TipoAsiento = descripciones[i];
-                    entrada.Disponibles = Int32.Parse(cantidades[i]);
-                    entrada.Precio = Decimal.Parse(precios[i]);
-                    entrada.Active = true;
-                    await _entradaRepository.AddAsync(entrada);
-                }
+                var nuevaEntrada = new Entrada();
+                nuevaEntrada.IdEvento = entrada.IdEvento;
+                nuevaEntrada.TipoAsiento = entrada.TipoAsiento;
+                nuevaEntrada.Disponibles = entrada.Disponibles;
+                nuevaEntrada.Precio = entrada.Precio;
+                nuevaEntrada.Active = true;
+                await _entradaRepository.AddAsync(nuevaEntrada);
             }
             return entradasEvento;
         }
-
-
-
     }
 }
