@@ -35,7 +35,7 @@ function Home() {
     return (
         <div className="home">
             <Navbar />
-            <div className="content">
+            <div className="content background-image">
                 <div className="card text-center">
                     <div className="card-body">
                         <h5 className="card-title">{t('started_session')}</h5>
@@ -58,6 +58,7 @@ function Home() {
             </div>
         </div>
     );
+
 
 }                             
 

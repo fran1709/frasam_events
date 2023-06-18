@@ -114,7 +114,7 @@ function ForgotPassword() {
             <div className="container">
                 <div className="card card-container ">
                     <br />
-                    <img src="./images/logo.png" alt="" />
+                    <img src="https://res.cloudinary.com/dgm059qwp/image/upload/v1680588126/Black_and_Gold_Classy_Minimalist_Circular_Name_Logo-removebg-preview_rfjd8f.png" alt="" />
                     <hr />
                     <form className="form-signin">
                         <span id="reauth-email" className="reauth-email"></span>

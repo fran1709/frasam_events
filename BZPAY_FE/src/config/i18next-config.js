@@ -12,7 +12,7 @@ i18n      //.use(Backend)
         resources: {
             es: {
                 translation: {
-                    welcome: 'Hola. Bienvenido al NuevoUI {{ username }} usted ha sido exitosamente logueado y se encuentra en la página de home',
+                    welcome: 'Hola. Bienvenido al Safj Tickets {{ username }} usted ha sido exitosamente loguead@ y se encuentra en la página de home',
                     user: 'Usuario',
                     password:'Contraseña',
                     login: 'Iniciar Sesión',
@@ -28,7 +28,7 @@ i18n      //.use(Backend)
                     forgot_password: 'Olvidó su contraseña?',
                     check_email: 'Por favor, revise su correo registrado',
                     accept: 'Aceptar',
-                    bzpayclient: 'bzpaycliente',
+                    bzpayclient: 'Correo Safj',
                     newpassword: 'Nueva Contraseña',
                     confirmpassword: 'Confirmar Contraseña',
                     passwords_not_match: 'Las contraseñas digitadas NO coinciden',
@@ -44,7 +44,7 @@ i18n      //.use(Backend)
             },
             en: {
                 translation: {
-                    welcome: 'Hi.Welcome to the NewUI {{ username }} you have been successfully logged in and you are on the home page',
+                    welcome: 'Hi.Welcome to the Safj Tickets {{ username }} you have been successfully logged in and you are on the home page',
                     user: 'User',
                     password:'Password',
                     login: 'Login',
@@ -60,7 +60,7 @@ i18n      //.use(Backend)
                     forgot_password: 'Forgot Password?',
                     check_email: 'Please, check your registered email',
                     accept: 'Accept',
-                    bzpayclient: 'bzpayclient',
+                    bzpayclient: 'Email Safj',
                     newpassword: 'New Password',
                     confirmpassword: 'Confirm Password',
                     passwords_not_match: 'The passwords entered don´t match',

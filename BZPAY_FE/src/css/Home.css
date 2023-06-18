@@ -53,6 +53,14 @@
     cursor: pointer;
 }
 
-    .btn-danger:hover {
-        background-color: #c82333;
-    }
+.btn-danger:hover {
+    background-color: #c82333;
+}
+.background-image {
+    background-image: url(https://res.cloudinary.com/dgm059qwp/image/upload/v1680588126/Black_and_Gold_Classy_Minimalist_Circular_Name_Logo-removebg-preview_rfjd8f.png);
+    background-size: auto ;
+    background-position:initial;
+    background-repeat: round;
+    /* Agrega otros estilos según sea necesario */
+}
+
